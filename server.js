@@ -1,5 +1,9 @@
-import config, { nodeEnv, logStars } from './config';
+import https from "https";
 
-console.log(config, nodeEnv);
+https.get('https://www.google.com', res => {
+    console.log('Response Status Code: ', res.statusCode);
 
-logStars('Function');
+    res.on('data', chunk => {
+        console.log(chunk.toString());
+    });
+});
