@@ -1,9 +1,13 @@
-import https from "https";
+import http from "http";
 
-https.get('https://www.google.com', res => {
-    console.log('Response Status Code: ', res.statusCode);
+const server = http.createServer();
 
-    res.on('data', chunk => {
-        console.log(chunk.toString());
-    });
+server.listen(8080);
+
+server.on('request', (req, res) => {
+    res.write('Hello HTTP!\n');
+    setTimeout(() => {
+        res.write('I can stream!\n');
+        res.end();
+    }, 3000);
 });
