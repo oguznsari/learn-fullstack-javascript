@@ -1,20 +1,27 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-const App = (props) => {
+const Header = ({message}) => {
   return (
-    <h2 className="text-center">
-      {props.headerMessage}
+    <h2 className="Header text-center">
+      {message}
     </h2>
   );
 };
 
-App.propTypes = {
-  headerMessage: React.PropTypes.string
+Header.propTypes = {
+  message: React.PropTypes.string
 };
 
-App.defaultProps = {
-  headerMessage: 'Hello Def!'
+const App = () => {
+  return (
+    <div className="App">
+      <Header message="Naming Contests"/>
+      <div>
+        ...
+      </div>
+    </div>
+  );
 };
 
 ReactDOM.render(
