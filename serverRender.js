@@ -14,7 +14,7 @@ const serverRender = () =>
           <App initialContests={resp.data.contests}/>
         ),
         initialData: resp.data 
-      }
+      };
     })
     .catch(console.error);
 

@@ -17,12 +17,12 @@ import serverRender from './serverRender';
 server.get('/', (req, res) => {
   serverRender()
     .then(({ initialMarkup, initialData }) => {
-        res.render('index', {
-          initialMarkup,
-          initialData
-        });
+      res.render('index', {
+        initialMarkup,
+        initialData
+      });
     })
-    .catch(console.error)
+    .catch(console.error);
 
 });
 
