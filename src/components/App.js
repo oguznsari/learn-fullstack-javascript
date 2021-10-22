@@ -6,7 +6,7 @@ import axios from 'axios';
 class App extends React.Component {
   state = {
     pageHeader: 'Naming Contests',
-    contests: []
+    contests: this.props.initialContests
   };
   componentDidMount() {
     axios.get('/api/contests')
@@ -18,6 +18,7 @@ class App extends React.Component {
       .catch(console.error);
   }
   render() {
+    debugger;
     return (
       <div className="App">
         <Header message={this.state.pageHeader} />
