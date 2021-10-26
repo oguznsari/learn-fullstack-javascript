@@ -2,7 +2,7 @@ import config from './config';
 import apiRouter from './api';
 import sassMiddleware from 'node-sass-middleware';
 import path from 'path';
-
+import serverRender from './serverRender';
 import express from 'express';
 const server = express();
 
@@ -13,9 +13,8 @@ server.use(sassMiddleware({
   dest: path.join(__dirname, 'public')                  // dir - write css to
 }));
 
-import serverRender from './serverRender';
-server.get('/', (req, res) => {
-  serverRender()
+server.get(['/', '/contest/:contestId'], (req, res) => {
+  serverRender(req.params.contestId)
     .then(({ initialMarkup, initialData }) => {
       res.render('index', {
         initialMarkup,
