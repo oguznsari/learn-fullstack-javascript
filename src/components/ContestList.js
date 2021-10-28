@@ -1,5 +1,6 @@
 import React from 'react';
 import ContestPreview from './ContestPreview';
+import PropTypes from 'prop-types';
 
 const ContestList = ({ contests, onContestClick }) => (
   <div className="ContestList">
@@ -13,8 +14,8 @@ const ContestList = ({ contests, onContestClick }) => (
 );
 
 ContestList.propTypes = {
-    contests: React.PropTypes.object,
-    onContestClick: React.PropTypes.func.isRequired,
+  contests: PropTypes.object,
+  onContestClick: PropTypes.func.isRequired,
 };
 
 export default ContestList;
