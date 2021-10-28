@@ -8,7 +8,7 @@ import axios from 'axios';
 
 const getApiUrl = contestId => {
   if (contestId) {
-    return `${config.serverUrl}/api/contest/${contestId}`;
+    return `${config.serverUrl}/api/contests/${contestId}`;
   }
   return `${config.serverUrl}/api/contests`;
 };
