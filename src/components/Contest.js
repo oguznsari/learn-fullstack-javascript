@@ -25,7 +25,9 @@ class Contest extends Component {
                 </div>
                 <div className="panel-body">
                   <ul className="list-group">
-                    {this.props.nameIds.map()}
+                    {this.props.nameIds.map(nameId =>
+                      <li className="list-group-item">{nameId}</li>
+                    )}
                   </ul>
                 </div>
               </div>
