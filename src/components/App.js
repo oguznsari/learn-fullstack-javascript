@@ -59,11 +59,23 @@ class App extends React.Component {
   };
 
   fetchNames = (nameIds) => {
+    if (nameIds.length === 0 ) {
+      return;
+    }
     api.fetchNames(nameIds).then(names => {
       this.setState({
         names
       });
     });
+  };
+
+  lookupName = (nameId) => {
+    if (!this.state.names || !this.state.names[nameId]) {
+      return {
+        name: '...'
+      };
+    }
+    return this.state.names[nameId];
   };
 
   pageHeader() {
@@ -82,6 +94,7 @@ class App extends React.Component {
       return <Contest
                 contestListClick={this.fetchContestList}
                 fetchNames={this.fetchNames}
+                lookupName={this.lookupName}
                 {... this.currentContest()} />;
     } else {
       return <ContestList 
